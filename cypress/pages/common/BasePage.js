@@ -5,23 +5,31 @@ class BasePage {
     }
 
     click(element) {
-        element.click();
+        return element.click();
     }
 
     type(element, value) {
-        element.clear().type(value);
+        element.clear();
+        if (value !== undefined && value !== null) {
+            element.type(value);
+        }
+        return element;
     }
 
     shouldBeVisible(element) {
-        element.should('be.visible');
+        return element.should("be.visible");
     }
 
     shouldContain(element, text) {
-        element.should('contain.text', text);
+        return element.should("contain.text", text);
     }
 
     shouldHaveUrl(url) {
         cy.url().should('include', url);
+    }
+
+    clear(element) {
+        return element.clear();
     }
 
 }

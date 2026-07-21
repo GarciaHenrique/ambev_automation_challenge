@@ -1,0 +1,8 @@
+const ValidationTypes = Object.freeze({
+    AUTHENTICATION: "AUTHENTICATION",
+    REQUIRED_EMAIL: "REQUIRED_EMAIL",
+    REQUIRED_PASSWORD: "REQUIRED_PASSWORD",
+    REQUIRED_FIELDS: "REQUIRED_FIELDS"
+});
+
+export default ValidationTypes;

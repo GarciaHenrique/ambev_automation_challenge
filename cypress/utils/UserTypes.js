@@ -1,0 +1,10 @@
+const UserTypes = Object.freeze({
+    ADMIN: "ADMIN",
+    INVALID_EMAIL: "INVALID_EMAIL",
+    INVALID_PASSWORD: "INVALID_PASSWORD",
+    EMPTY_EMAIL: "EMPTY_EMAIL",
+    EMPTY_PASSWORD: "EMPTY_PASSWORD",
+    EMPTY_FIELDS: "EMPTY_FIELDS"
+});
+
+export default UserTypes;
