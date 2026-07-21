@@ -1,0 +1,10 @@
+{
+  "admin": {
+    "email": "admin@serverest.dev",
+    "password": "teste"
+  },
+  "user": {
+    "email": "fulano@qa.com",
+    "password": "teste"
+  }
+}

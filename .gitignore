@@ -1,0 +1,11 @@
+node_modules
+cypress.env.json
+reports
+mochawesome-report
+mochawesome
+videos
+.nyc_output
+coverage
+cypress/screenshots/
+cypress/videos/
+cypress/reports/
