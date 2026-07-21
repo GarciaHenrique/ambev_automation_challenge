@@ -1,11 +1,23 @@
-node_modules
-cypress.env.json
-reports
-mochawesome-report
-mochawesome
-videos
-.nyc_output
-coverage
+# Node
+node_modules/
+
+# Cypress
 cypress/screenshots/
 cypress/videos/
+cypress/downloads/
 cypress/reports/
+
+# Environment
+cypress.env.json
+.env
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
