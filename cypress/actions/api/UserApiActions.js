@@ -3,12 +3,12 @@ import UserService from "../../services/UserService";
 
 class UserApiActions {
 
-    validUser() {
-        return LoginFactory.validUser();
+    getUser() {
+        return LoginFactory.getUser();
     }
 
     createDuplicatedUser() {
-        const user = LoginFactory.validUser();
+        const user = LoginFactory.getUser();
         return UserService.create(user).then(() => user);
     }
 

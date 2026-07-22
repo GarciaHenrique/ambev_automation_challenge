@@ -1,5 +1,7 @@
 # Cypress Automation Framework
 
+![CI](https://github.com/GarciaHenrique/ambev_automation_challenge/actions/workflows/cypress.yml/badge.svg)
+
 Framework de automação de testes desenvolvido para o desafio técnico da Mouts/Ambev utilizando Cypress, JavaScript e Cucumber (BDD).
 
 ---
@@ -193,6 +195,8 @@ BaseService
 - Reutilização de componentes
 - Preparação de usuários via API para testes Frontend
 - Reutilização de autenticação através de Steps compartilhados
+- Pipeline de CI utilizando GitHub Actions
+- Upload automático de artefatos da execução (Reports, Screenshots e Videos)
 
 ---
 
@@ -299,7 +303,6 @@ Durante o desenvolvimento foram adotadas algumas decisões visando escalabilidad
 
 ## Próximos passos
 
-- Configuração de GitHub Actions (CI/CD)
 - Geração automática de relatórios HTML
 - Execução paralela dos testes
 - Execução por tags utilizando Cucumber

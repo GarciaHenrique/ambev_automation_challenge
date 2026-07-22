@@ -2,7 +2,7 @@ import { faker } from "@faker-js/faker";
 
 class LoginFactory {
 
-    static validUser() {
+    static getUser() {
         return {
             name: faker.person.fullName(),
             email: faker.internet.email(),

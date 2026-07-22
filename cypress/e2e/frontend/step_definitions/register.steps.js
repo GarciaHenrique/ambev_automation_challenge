@@ -1,11 +1,11 @@
-import {Before, Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
+import { Before, Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 import RegisterActions from "../../../actions/frontend/RegisterActions";
 import RegisterFactory from "../../../factories/RegisterFactory";
 import UserService from "../../../services/UserService";
 import users from "../../../fixtures/users.json";
 
-Before({tags: "@duplicated-email"}, () =>{
-    UserService.create(users["duplicatedUser"])
+Before({ tags: "@duplicated-email" }, () => {
+    return UserService.create(users.duplicatedUser);
 });
 
 Given("I access the register page", () => {
@@ -13,14 +13,9 @@ Given("I access the register page", () => {
 });
 
 When("I register with the {string} user", (userType) => {
-
     const user = RegisterFactory.getUser(userType);
 
-    cy.log(`TYPE: ${userType}`);
-    cy.log(`USER: ${JSON.stringify(user)}`);
-
     RegisterActions.register(user);
-
 });
 
 Then("I should see the {string} registration validation", (validation) => {

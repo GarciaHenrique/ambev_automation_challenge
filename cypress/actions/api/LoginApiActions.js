@@ -4,8 +4,8 @@ import UserService from "../../services/UserService";
 
 class LoginApiActions {
 
-    validUser() {
-        const user = LoginFactory.validUser();
+    getUser() {
+        const user = LoginFactory.getUser();
         return UserService.create(user).then(() => user);
     }
 

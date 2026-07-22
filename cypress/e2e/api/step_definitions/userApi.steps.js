@@ -2,10 +2,9 @@ import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 import UserApiActions from "../../../actions/api/UserApiActions";
 
 let user;
-let apiResponse;
 
 Given("a valid user", () => {
-    user = UserApiActions.validUser();
+    user = UserApiActions.getUser();
 });
 
 Given("a duplicated user exists", () => {

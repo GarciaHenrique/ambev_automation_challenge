@@ -5,7 +5,7 @@ class UserService {
     create(user) {
         return cy.request({
             method: "POST",
-            url: `${Urls.API.BASE}${Urls.API.USERS}`,
+            url: `${Urls.API.BASE_URL}${Urls.API.USERS}`,
             failOnStatusCode: false,
             body: {
                 nome: user.name,

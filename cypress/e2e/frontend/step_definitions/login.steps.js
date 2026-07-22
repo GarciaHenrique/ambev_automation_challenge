@@ -1,18 +1,15 @@
-import {Before, Given, When, Then} from "@badeball/cypress-cucumber-preprocessor";
+import { Before, Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 import LoginActions from "../../../actions/frontend/LoginActions";
 import UserFactory from "../../../factories/UserFactory";
 import UserService from "../../../services/UserService";
 import LoginFactory from "../../../factories/LoginFactory";
 
 Before({ tags: "@positive" }, () => {
-    const user = LoginFactory.validUser();
+    const user = LoginFactory.getUser();
 
     cy.wrap(user).as("loginUser");
 
-    UserService.create(user).then((response) => {
-        cy.log(`STATUS: ${response.status}`);
-        cy.log(JSON.stringify(response.body));
-    });
+    return UserService.create(user);
 });
 
 Given("I access the login page", () => {
@@ -26,11 +23,12 @@ When("I log in with the {string} user", (userType) => {
         });
         return;
     }
+
     LoginActions.login(
         UserFactory.getUser(userType)
     );
 });
 
-Then("I should see the {string} validation",(validation) => {
+Then("I should see the {string} validation", (validation) => {
     LoginActions.validateLogin(validation);
 });

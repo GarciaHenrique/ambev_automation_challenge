@@ -9,24 +9,12 @@ class RegisterActions {
     }
 
     register(user) {
-
-    cy.log(`NAME => ${user.name}`);
-    cy.log(`EMAIL => ${user.email}`);
-
     RegisterPage.fillName(user.name);
-
     RegisterPage.fillEmail(user.email);
-
     RegisterPage.fillPassword(user.password);
-
     RegisterPage.checkAdministrator(user.administrator);
-
     RegisterPage.elements.form.nameInput()
-        .invoke("val")
-        .then(value => cy.log(`NAME INPUT => '${value}'`));
-
     RegisterPage.submit();
-
 }
 
     validate(validationType) {

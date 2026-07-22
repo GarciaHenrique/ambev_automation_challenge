@@ -1,6 +1,5 @@
 import { When, Then } from "@badeball/cypress-cucumber-preprocessor";
 import ProductApiActions from "../../../actions/api/ProductApiActions";
-import ProductSchema from "../../../schemas/productsApi.schema";
 
 When("I send a request to retrieve the product list", function () {
     return ProductApiActions.getProducts().then((response) => {

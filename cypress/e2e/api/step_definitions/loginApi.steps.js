@@ -5,7 +5,7 @@ import LoginApiActions from "../../../actions/api/LoginApiActions";
 let user;
 
 Given("a valid user exists", () => {
-    return LoginApiActions.validUser().then((createdUser) => {
+    return LoginApiActions.getUser().then((createdUser) => {
         user = createdUser;
     });
 });

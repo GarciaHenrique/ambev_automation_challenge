@@ -1,19 +1,19 @@
 const Urls = Object.freeze({
 
-    FRONT: Object.freeze({
-        BASE: Cypress.config("baseUrl"),
+    FRONT: {
+        BASE_URL: Cypress.config("baseUrl"),
         HOME: "/home",
         ADMIN_HOME: "/admin/home",
         LOGIN: "/login",
         REGISTER: "/cadastrarusuarios"
-    }),
+    },
 
-    API: Object.freeze({
-        BASE: Cypress.env("apiUrl"),
+    API: {
+        BASE_URL: Cypress.env("apiUrl"),
         LOGIN: "/login",
         USERS: "/usuarios",
         PRODUCTS: "/produtos"
-    })
+    }
 
 });
 
