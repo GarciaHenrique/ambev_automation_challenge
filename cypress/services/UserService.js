@@ -1,4 +1,4 @@
-import Urls from "../utils/Urls";
+import Urls from "../constants/Urls";
 
 class UserService {
 

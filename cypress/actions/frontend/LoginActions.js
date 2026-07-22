@@ -1,6 +1,6 @@
-import LoginPage from "../pages/LoginPage";
-import ValidationTypes from "../utils/ValidationTypes";
-import Messages from "../utils/Messages";
+import LoginPage from "../../pages/LoginPage";
+import ValidationTypes from "../../constants/ValidationTypes";
+import Messages from "../../constants/Messages";
 
 class LoginActions {
 

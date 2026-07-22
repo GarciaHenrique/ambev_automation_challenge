@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import RegisterTypes from "../utils/RegisterTypes";
+import RegisterTypes from "../constants/RegisterTypes";
 import users from "../fixtures/users.json";
 
 class RegisterFactory {

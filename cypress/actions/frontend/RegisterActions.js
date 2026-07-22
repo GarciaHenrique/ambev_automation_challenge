@@ -1,6 +1,6 @@
-import RegisterPage from "../pages/RegisterPage";
-import Messages from "../utils/Messages";
-import ValidationTypes from "../utils/ValidationTypes";
+import RegisterPage from "../../pages/RegisterPage";
+import Messages from "../../constants/Messages";
+import ValidationTypes from "../../constants/ValidationTypes";
 
 class RegisterActions {
 

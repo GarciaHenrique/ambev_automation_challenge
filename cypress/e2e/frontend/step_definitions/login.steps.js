@@ -1,11 +1,11 @@
 import {Before, Given, When, Then} from "@badeball/cypress-cucumber-preprocessor";
-import LoginActions from "../../../actions/LoginActions";
+import LoginActions from "../../../actions/frontend/LoginActions";
 import UserFactory from "../../../factories/UserFactory";
 import UserService from "../../../services/UserService";
 import LoginFactory from "../../../factories/LoginFactory";
 
 Before({ tags: "@positive" }, () => {
-    const user = LoginFactory.createValidUser();
+    const user = LoginFactory.validUser();
 
     cy.wrap(user).as("loginUser");
 

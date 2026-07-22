@@ -1,5 +1,5 @@
 import users from "../fixtures/users.json";
-import UserTypes from "../utils/UserTypes";
+import UserTypes from "../constants/UserTypes";
 
 class UserFactory {
 

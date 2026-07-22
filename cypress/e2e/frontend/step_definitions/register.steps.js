@@ -1,5 +1,5 @@
 import {Before, Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
-import RegisterActions from "../../../actions/RegisterActions";
+import RegisterActions from "../../../actions/frontend/RegisterActions";
 import RegisterFactory from "../../../factories/RegisterFactory";
 import UserService from "../../../services/UserService";
 import users from "../../../fixtures/users.json";

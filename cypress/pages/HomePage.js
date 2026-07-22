@@ -1,5 +1,5 @@
 import BasePage from "./common/BasePage";
-import Urls from "../utils/Urls";
+import Urls from "../constants/Urls";
 
 class HomePage extends BasePage {
   elements = {
