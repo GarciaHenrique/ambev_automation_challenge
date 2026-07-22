@@ -1,4 +1,5 @@
 import BasePage from "./common/BasePage";
+import Urls from "../utils/Urls";
 
 class HomePage extends BasePage {
   elements = {
@@ -6,8 +7,13 @@ class HomePage extends BasePage {
   };
 
   validateHomePage() {
-    this.shouldBeVisible(this.elements.pageTitle());
-    this.shouldHaveUrl("/");
+      this.shouldHaveOneOfUrls([
+          `${Urls.FRONT.BASE}${Urls.FRONT.HOME}`,
+          `${Urls.FRONT.BASE}${Urls.FRONT.ADMIN_HOME}`
+      ]);
+      this.shouldBeVisible(
+          this.elements.pageTitle()
+      );
   }
 }
 

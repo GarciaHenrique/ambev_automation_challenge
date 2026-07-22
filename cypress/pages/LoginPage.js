@@ -1,7 +1,5 @@
 import BasePage from "./common/BasePage";
 
-console.log("LoginPage carregada");
-
 class LoginPage extends BasePage {
     elements = {
         form: {
@@ -14,7 +12,7 @@ class LoginPage extends BasePage {
         }
     };
 
-    accessPage() {
+    navigate() {
         this.visit("/login");
     }
 
@@ -45,16 +43,8 @@ class LoginPage extends BasePage {
     }
 
     validateAlert(message) {
-
-        this.elements.feedback.alert()
-            .invoke("text")
-            .then(text => {
-                console.log("ALERTA:", JSON.stringify(text));
-            });
-
         this.elements.feedback.alert()
             .should("contain.text", message);
-
     }
 
 }

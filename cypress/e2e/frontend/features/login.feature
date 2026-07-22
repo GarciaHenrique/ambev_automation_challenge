@@ -7,19 +7,19 @@ Feature: Login
     @positive
     Scenario: Successful login
         Given I access the login page
-        When I log in with the "ADMIN" user
+        When I log in with the "VALID" user
         Then I should be redirected to the home page
 
     @negative
-    Scenario Outline: Invalid login attempts
+    Scenario Outline: Login validatiion - <scenario>
         Given I access the login page
         When I log in with the "<userType>" user
         Then I should see the "<validation>" validation
         
         Examples:
-            | userType          | validation          |
-            | INVALID_EMAIL     | AUTHENTICATION      |
-            | INVALID_PASSWORD  | AUTHENTICATION      |
-            | EMPTY_EMAIL       | REQUIRED_EMAIL      |
-            | EMPTY_PASSWORD    | REQUIRED_PASSWORD   |
-            | EMPTY_FIELDS      | REQUIRED_FIELDS     |
+            | scenario                  | userType         | validation        |
+            | Invalid email             | INVALID_EMAIL    | AUTHENTICATION    |
+            | Invalid password          | INVALID_PASSWORD | AUTHENTICATION    |
+            | Empty email               | EMPTY_EMAIL      | REQUIRED_EMAIL    |
+            | Empty password            | EMPTY_PASSWORD   | REQUIRED_PASSWORD |
+            | Empty email and password  | EMPTY_FIELDS     | REQUIRED_FIELDS   |

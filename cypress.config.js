@@ -9,6 +9,7 @@ const {
   createEsbuildPlugin,
 } = require("@badeball/cypress-cucumber-preprocessor/esbuild");
 
+
 module.exports = defineConfig({
 
   viewportWidth: 1440,
@@ -16,6 +17,10 @@ module.exports = defineConfig({
   defaultCommandTimeout: 10000,
   video: false,
   screenshotOnRunFailure: true,
+
+  env: {
+    apiUrl: "https://serverest.dev"
+  },
 
   e2e: {
     baseUrl: "https://front.serverest.dev",
@@ -29,6 +34,7 @@ module.exports = defineConfig({
 
     async setupNodeEvents(on, config) {
       await addCucumberPreprocessorPlugin(on, config);
+
       on(
         "file:preprocessor",
         createBundler({

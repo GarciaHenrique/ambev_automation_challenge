@@ -1,23 +1,36 @@
-import { Given, When, Then} from "@badeball/cypress-cucumber-preprocessor";
-
+import {Before, Given, When, Then} from "@badeball/cypress-cucumber-preprocessor";
 import LoginActions from "../../../actions/LoginActions";
-import HomePage from "../../../pages/HomePage";
 import UserFactory from "../../../factories/UserFactory";
+import UserService from "../../../services/UserService";
+import LoginFactory from "../../../factories/LoginFactory";
 
-Given("I access the login page", () => {
-    LoginActions.accessPage();
+Before({ tags: "@positive" }, () => {
+    const user = LoginFactory.createValidUser();
+
+    cy.wrap(user).as("loginUser");
+
+    UserService.create(user).then((response) => {
+        cy.log(`STATUS: ${response.status}`);
+        cy.log(JSON.stringify(response.body));
+    });
 });
 
-When("I log in with the {string} user",(userType) => {
-    LoginActions.performLogin(
+Given("I access the login page", () => {
+    LoginActions.navigate();
+});
+
+When("I log in with the {string} user", (userType) => {
+    if (userType === "VALID") {
+        cy.get("@loginUser").then((user) => {
+            LoginActions.login(user);
+        });
+        return;
+    }
+    LoginActions.login(
         UserFactory.getUser(userType)
     );
 });
 
-Then("I should be redirected to the home page",() => {
-        HomePage.validateHomePage();
-});
-
 Then("I should see the {string} validation",(validation) => {
-        LoginActions.validate(validation);
+    LoginActions.validateLogin(validation);
 });

@@ -8,9 +8,13 @@ class BasePage {
         return element.click();
     }
 
+    clear(element) {
+        return element.clear();
+    }
+
     type(element, value) {
         element.clear();
-        if (value !== undefined && value !== null) {
+        if (value != null) {
             element.type(value);
         }
         return element;
@@ -25,11 +29,14 @@ class BasePage {
     }
 
     shouldHaveUrl(url) {
-        cy.url().should('include', url);
+        cy.url().should("include", url);
     }
 
-    clear(element) {
-        return element.clear();
+    shouldHaveOneOfUrls(urls) {
+        cy.url().should((currentUrl) => {
+            expect(urls, `Expected URL '${currentUrl}' to be one of the allowed URLs`)
+                .to.include(currentUrl);
+        });
     }
 
 }

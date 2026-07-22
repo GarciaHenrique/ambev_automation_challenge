@@ -1,6 +1,6 @@
 # Cypress Automation Framework
 
-Framework de automação de testes desenvolvido para o desafio técnico da Mouts utilizando Cypress, JavaScript e Cucumber (BDD).
+Framework de automação de testes desenvolvido para o desafio técnico da Mouts/Ambev utilizando Cypress, JavaScript e Cucumber (BDD).
 
 ---
 
@@ -12,7 +12,8 @@ Framework de automação de testes desenvolvido para o desafio técnico da Mouts
 - Page Object Model (POM)
 - Factory Pattern
 - Actions Pattern
-- Cypress Intercept
+- Service Layer
+- Faker
 - Git
 
 ---
@@ -40,11 +41,12 @@ cypress
 │
 ├── actions
 ├── e2e
-│   ├── frontend
-│   └── api
+│   ├── api
+│   └── frontend
 ├── factories
 ├── fixtures
 ├── pages
+│   └── common
 ├── services
 ├── support
 └── utils
@@ -56,8 +58,10 @@ cypress
 
 - Page Object Model
 - Factory Pattern
+- Service Layer
 - Base Page
 - Actions Layer
+- Common Steps
 - Constantes centralizadas
 - Massa de testes desacoplada
 - Reutilização de componentes
@@ -68,15 +72,38 @@ cypress
 
 ### Frontend
 
+#### Login
+
 - Login com sucesso
 - Login inválido
-- Campos obrigatórios
-- Validação de mensagens
-- Validação de navegação
+- Validação de campos obrigatórios
+- Preparação dinâmica da massa de dados via API para o cenário positivo
+
+#### Cadastro
+
+- Cadastro com sucesso
+- Nome obrigatório
+- Email obrigatório
+- Senha obrigatória
+- Validação de email duplicado
+- Preparação automática da massa de dados para validação de email duplicado
 
 ### API
 
-- (em desenvolvimento)
+- Camada inicial de Services para preparação de massa de dados
+
+---
+
+## Recursos implementados
+
+- BasePage
+- UserService
+- Common Steps
+- Hooks (Before)
+- Massa dinâmica utilizando Faker
+- Centralização de URLs
+- Centralização de mensagens
+- Reutilização de componentes
 
 ---
 
@@ -94,16 +121,22 @@ Executar interface gráfica
 npx cypress open
 ```
 
-Executar headless
+Executar todos os testes
 
 ```bash
 npx cypress run
 ```
 
-Executar apenas Login
+Executar Login
 
 ```bash
 npx cypress run --spec cypress/e2e/frontend/features/login.feature
+```
+
+Executar Cadastro
+
+```bash
+npx cypress run --spec cypress/e2e/frontend/features/register.feature
 ```
 
 ---
@@ -120,12 +153,23 @@ docs/investigations/login-validation.md
 
 ---
 
+## Decisões de Arquitetura
+
+Durante o desenvolvimento foram adotadas algumas decisões visando escalabilidade e manutenção do framework:
+
+- Separação entre Actions, Pages, Services e Factories.
+- Preparação de massa de dados via API através da camada de Services.
+- Reutilização de Step Definitions comuns.
+- Geração de usuários dinâmicos utilizando Faker.
+- Centralização de mensagens e URLs da aplicação.
+
+---
+
 ## Próximos passos
 
-- Cadastro
+- Automação de API
 - Produtos
 - Carrinho
 - Checkout
-- API
 - Relatórios
 - CI/CD
